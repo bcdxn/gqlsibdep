@@ -33,10 +33,17 @@ class PersonController {
   }
 
   @QueryMapping
-  List<Person> people() {
-    return personService.getAllPeople();
+  List<Person> people(DataLoader<Integer, Person> dataLoader) {
+    var people = personService.getAllPeople();
+
+    people.stream().forEach(person -> {
+      dataLoader.prime(person.id(), person);
+    });
+
+    return people;
   }
 
+  // N+1
   // @SchemaMapping
   // Person bestFriend(Person person) {
   //   return personService.getPersonById(person.bestFriendId());
@@ -49,6 +56,11 @@ class PersonController {
   //     .map(p -> p.bestFriendId())
   //     .collect(Collectors.toList());
   //   return personService.getPeopleById(ids);
+  // }
+
+  // @SchemaMapping
+  // CompletableFuture<Person> bestFriend(Person person, DataLoader<Integer, Person> dataLoader) {
+  //   return dataLoader.load(person.bestFriendId());
   // }
 
   @SchemaMapping

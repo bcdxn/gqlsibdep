@@ -13,9 +13,9 @@ public class PersonService {
   private static final Logger log = LoggerFactory.getLogger(PersonService.class);
 
   static final Map<Integer, Person> people = Map.of(
-    1, new Person("p1", 2),
-    2, new Person("p2", 3),
-    3, new Person("p3", 1)
+    1, new Person(1, "p1", 2),
+    2, new Person(2, "p2", 3),
+    3, new Person(3, "p3", 1)
   );
 
   Map<Integer, Person> allPeople() {

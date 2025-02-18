@@ -1,5 +1,5 @@
 package com.github.bcdxn.sibdep.graphql;
 
-public record Person(String name, Integer bestFriendId) {
+public record Person(Integer id, String name, Integer bestFriendId) {
 
 }
