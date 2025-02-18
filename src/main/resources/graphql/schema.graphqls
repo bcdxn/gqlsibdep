@@ -1,20 +1,8 @@
 type Query {
-  library: Library
+  pets: [Pet]
 }
 
-type Library {
-  id: ID
-  books: [Book]
-  authors: [Author]
-}
-
-type Book {
-  id: ID
-  title: String
-  author: Author
-}
-
-type Author {
-  id: ID
+type Pet {
   name: String
+  color: String
 }
