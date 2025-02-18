@@ -1,8 +1,8 @@
 type Query {
-  pets: [Pet]
+  people: [Person]
 }
 
-type Pet {
+type Person {
   name: String
-  color: String
+  bestFriend: Person
 }
