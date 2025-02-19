@@ -1,8 +1,18 @@
 type Query {
+  grouping: Grouping
+}
+
+type Grouping {
   people: [Person]
+  nicknames: [PersonNickname]
 }
 
 type Person {
   name: String
   bestFriend: Person
+}
+
+type PersonNickname {
+  name: String
+  fullName: String
 }
